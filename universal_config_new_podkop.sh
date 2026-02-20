@@ -775,13 +775,13 @@ curl -f -o /dev/null -k --connect-to ::google.com -L -H "Host: mirror.gcr.io" --
 # Проверяем код выхода
 if [ $? -eq 0 ]; then
 	printf "\033[32;1mzapret well work...\033[0m\n"
-	cronTask="0 4 * * * service zapret restart"
-	str=$(grep -i "0 4 \* \* \* service zapret restart" /etc/crontabs/root)
-	if [ -z "$str" ] 
-	then
-		echo "Add cron task auto reboot service zapret..."
-		echo "$cronTask" >> /etc/crontabs/root
-	fi
+	#cronTask="0 4 * * * service zapret restart"
+	#str=$(grep -i "0 4 \* \* \* service zapret restart" /etc/crontabs/root)
+	#if [ -z "$str" ] 
+	#then
+		#echo "Add cron task auto reboot service zapret..."
+		#echo "$cronTask" >> /etc/crontabs/root
+	#fi
 	str=$(grep -i "0 4 \* \* \* service youtubeUnblock restart" /etc/crontabs/root)
 	if [ ! -z "$str" ]
 	then
@@ -1071,7 +1071,7 @@ do
 		if [ "$is_manual_input_parameters" = "n" ]; then
 			I=0
 			WARP_ENDPOINT_HOSTS="engage.cloudflareclient.com 162.159.192.1 162.159.192.2 162.159.192.4 162.159.195.1 162.159.195.4 188.114.96.1 188.114.96.23 188.114.96.50 188.114.96.81"
-			WARP_ENDPOINT_PORTS="500 1701 2408 3138 4500"
+			WARP_ENDPOINT_PORTS="500"
 			for element in $WARP_ENDPOINT_HOSTS; do
 				EndpointIP="$element"
 				for element2 in $WARP_ENDPOINT_PORTS; do
